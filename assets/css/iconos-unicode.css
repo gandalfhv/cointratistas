@@ -1,0 +1,17 @@
+.icon::before {
+    display: inline-block;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* defining the right font-family/font-face and inherited weight for each style */
+.icon-solid::before {
+  font: var(--fa-font-solid);
+}
+/* defining the right unicode values for each icon */
+.icon-menu::before {
+    content: "\f0c9";
+  }
+.icon-equis::before {
+    content: "\f00d";
+  }  

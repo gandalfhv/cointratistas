@@ -1,0 +1,148 @@
+body {
+    margin: 0;
+     
+}
+header{
+    position: fixed;
+    background-color: rgba(0,57,92,0); 
+    width: 100%;
+    border: 1px dotted white;
+    text-align: center;
+    height: 180px;
+}
+  .logo{
+    margin: 20px 0 0px 0;
+    height: 40%;
+    
+     
+}
+
+main {
+    height: 1000px;
+}
+
+main .portada{
+    height: 739px;
+    border: 2px solid red;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-image: url('/assets/images/foto-portada.png');
+    background-size: cover;
+    background-position: 50% 50%;
+
+}
+.menu-principal{
+    
+/*es un ul y viene con un margin de 1m arriba y abajo por defecto en chrome, nos aseguramos que en otros navegadores asi sea*/
+    margin: 1em 0px;
+    box-sizing: border-box;
+    padding: 0px 10%; /*eliminar los valores del navegador*/
+    display: flex;
+    color: rgb(24, 173, 153); 
+    
+}
+
+.menu-principal > li{
+    display: flex; /*solo para centrar el contenido horizontal y verticalmente*/
+    align-items: center;
+    justify-content: center;
+    border: 1px dotted white;
+    padding: 0px 0px;
+    height: 30px;
+    flex-grow: 1;
+    text-align: center;
+    font-size: 0.8em;
+    position: relative;
+}
+
+
+.menu-principal>li a{
+    color: white;
+    text-decoration: none;
+    transition-property: color;
+    transition-duration: 0.3s;
+    transition-delay: 0s;
+}
+
+.menu-principal>li a:hover{
+    color: currentColor;
+    transition-property: color;
+
+}
+
+.submenu{
+    left: 0px;
+    top: 30px; 
+    margin: 0px;/*sobreescribimos cualquier valor del navegador*/
+    padding: 0px 0px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+}
+.submenu>li{
+    display: block;
+    background-color:  white;
+    padding: 10px;
+    flex-grow: 1;
+    text-align: center;
+    font-size: 0.8em;
+    color: gray;
+
+    transition-property: background-color;
+  transition-duration: 0.5s;
+  transition-delay: 0s;
+ 
+
+    }
+.submenu>li:hover{
+        background-color:  rgb(24, 173, 153); 
+        color: white;
+
+        }  
+    
+.submenu>li a{
+        color:currentColor;
+        text-decoration: none;
+    }
+    
+.menu-movil {
+    text-align: center;
+    margin-bottom: 16px;
+    background-color: transparent;
+    display: none;
+        
+}
+.menu-movil summary{
+    width: 25px;
+    padding: 4px;
+    font-size: 1.3em;
+    border-radius: 5px;
+    margin: 0px auto;
+    background-color: #00395C;
+    color: white;
+    list-style: none;
+    cursor: pointer;
+        
+}
+
+.menu-movil div {
+    background-color: aliceblue;
+   
+}
+
+@keyframes mostrar-barra {
+
+    to {
+        background-color: rgba(0,57,92,1);
+        height: 160px;
+    }
+    
+}
+header{
+     
+    animation: mostrar-barra linear both;
+    animation-timeline: scroll(root);
+    animation-range: 0 200px;
+ }
+ 
