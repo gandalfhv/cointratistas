@@ -5,53 +5,83 @@
     --color-tema-secundario: rgb(24, 173, 153);
 }
 
+html{
+    scroll-behavior: smooth;
+    scroll-padding: 123px;
+}
 body {
     margin: 0;
-
+    font-family: roboto, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-header {
+header.cabecera-principal {
     position: fixed;
     background-color: transparent;
     width: 100%;
     /* border: 1px dotted white; */
     text-align: center;
     /* height: 180px; */
+    z-index: 1;
+}
+
+footer.pie-principal {
+    
+    height: 137px;
+    background-image: url(/assets/images/foto-footer.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+    position: relative;
+}
+.colorear{
+    position: absolute; 
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-tema);
+    opacity: 0.7;
+}
+footer.pie-principal nav{
+    /* Debe ser auto porque flex-direction:column no crece dinamicamente con una altura fija */
+    height: auto;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .logo {
     margin: 20px 0 0px 0;
-    height: 72px;
-
-
+    height: 60px;
 }
+.logo-footer {
+    max-height: 30px;
+    z-index: 1;
+    margin: 20px 10px;   
+}
+
 
 main {
-    height: 1000px;
+    
 }
 
-main .portada {
-    height: 739px;
-    border: 2px solid red;
-    overflow: hidden;
-    background-repeat: no-repeat;
-    background-image: url('/assets/images/foto-portada.png');
-    background-size: cover;
-    background-position: 50% 50%;
 
-}
 
 .menu-principal {
 
     /*es un ul y viene con un margin de 1m arriba y abajo por defecto en chrome, nos aseguramos que en otros navegadores asi sea*/
+    /*eliminar los valores del navegador*/
     margin: 1em 0px;
     box-sizing: border-box;
     padding: 0px;
-    /*eliminar los valores del navegador*/
+    
     /* display: flex; */
     display: none;
-    justify-content: center;
-
+    /* Centrar sus elementos */
+    justify-content: center; 
+    
+    /* de que tamaño debe iniciar cuando es un elemnto de un pàdre flex*/
+    flex-basis: 600px;
 
 }
 
@@ -82,8 +112,6 @@ main .portada {
 
 .menu-principal>li:hover>a {
     color: var(--color-tema-secundario);
-    transition-property: color;
-
 }
 
 .menu-principal>li:hover .submenu {
@@ -127,6 +155,7 @@ main .portada {
 .submenu>li a {
     color: currentColor;
     text-decoration: none;
+    display: block;
 }
 
 
@@ -135,7 +164,8 @@ details.menu-movil {
     transition: all 0.5s ease-in-out;
     max-height: 35px;
     overflow: hidden;
-
+    width: 100%;
+    z-index: 1;
 }
 
 details[open].menu-movil {
@@ -153,9 +183,17 @@ details[open].menu-movil {
     margin: 0px auto;
     background-color: var(--color-tema);
     color: white;
-    list-style: none;
+    
     cursor: pointer;
 }
+
+summary{
+    list-style: none;/*no funciona en safari*/
+}
+summary::-webkit-details-marker {
+    display: none; /*funciona en safari*/
+     
+  }
 
 .menu-movil summary>span::before {
     content: "\f0c9";
@@ -185,7 +223,7 @@ details[open].menu-movil {
 
 }
 
-header {
+header.cabecera-principal {
 
     animation: mostrar-barra linear both;
     animation-timeline: scroll(root);
@@ -195,7 +233,7 @@ header {
 @keyframes anima-logo {
 
     to {
-        height: 60px;
+        height: 50px;
     }
 
 }
@@ -206,6 +244,19 @@ header {
     animation-timeline: scroll(root);
     animation-range: 0 200px;
 }
+h3{
+    color: var(--color-tema-secundario);
+    font-weight: 400;
+}
+h4{
+    color: var(--color-tema);
+    font-weight: 400;
+}
+  h1{
+    color: var(--color-tema);
+    font-weight: 400;
+}
+
 
 @media (min-width:600px) {
     .menu-principal {
@@ -214,5 +265,10 @@ header {
 
     .menu-movil {
         display: none;
+    }
+
+    footer.pie-principal nav{
+        height: 100%;
+        flex-direction: row;
     }
 }
