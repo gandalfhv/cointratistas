@@ -71,7 +71,7 @@ document.querySelectorAll(".naveg").forEach(link=>{
         e.preventDefault();
         console.log("click")
         const objeto=document.getElementById(link.name)
-        objeto.scrollIntoView();
+        objeto.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
         console.log(objeto)
 
     });
