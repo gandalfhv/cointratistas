@@ -1,4 +1,4 @@
-main>section>div{
+main>section>div {
     max-width: 1000px;
     padding: 20px;
     box-sizing: border-box;
@@ -9,7 +9,7 @@ main>section>div{
 
 main .portada {
     height: 739px;
-    
+
     overflow: hidden;
     background-repeat: no-repeat;
     background-image: url('/assets/images/foto-portada.png');
@@ -24,16 +24,16 @@ main .portada {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap:20px
+    gap: 20px
 }
 
-.contenido-portada div{
+.contenido-portada div {
     margin: 0 10px;
     width: 80%;
 }
 
-.boton-tema{
-    border : none;
+.boton-tema {
+    border: none;
     color: white;
     background-color: var(--color-tema-secundario);
     padding: 8px 19px;
@@ -45,11 +45,12 @@ main .portada {
     transition: background-color 0.5s ease-out;
     /* transition: background-color 2s ease-out 100ms */
 }
-.boton-tema:hover{
+
+.boton-tema:hover {
     background-color: black;
 }
- 
-.texto-sobrepuesto{
+
+.texto-sobrepuesto {
     background-color: rgba(0, 0, 0, 0.5);
     color: white;
     box-sizing: border-box;
@@ -61,7 +62,7 @@ main .portada {
 /* FIn Empresarial Sección 01 */
 
 /*Empresarial Sección 02 */
-.corporativo{
+.corporativo {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -72,11 +73,11 @@ main .portada {
     background-size: cover;
 }
 
-.corporativo > div{
+.corporativo>div {
     flex-basis: 400px;
     padding: 20px;
     box-sizing: border-box;
-    margin:0px;
+    margin: 0px;
     text-align: justify;
 }
 
@@ -84,6 +85,7 @@ main .portada {
     position: relative;
     overflow: hidden;
 }
+
 .puntero {
     position: absolute;
     left: 95px;
@@ -94,26 +96,27 @@ main .portada {
     background-color: var(--color-tema-secundario);
 }
 
-.puntero::after{
+.puntero::after {
     content: '';
     display: block;
     width: 100%;
     height: 100%;
     border-radius: 50%;
-    
+
     background-color: var(--color-tema-secundario);
-    animation: pulso 2s ease-in-out alternate infinite ;
+    animation: pulso 2s ease-in-out alternate infinite;
 }
 
 @keyframes pulso {
-    0%{
+    0% {
         opacity: 0;
     }
-    50%{
+
+    50% {
         opacity: 0.5;
     }
 
-    100%{
+    100% {
         scale: 2.5;
         opacity: 0.7;
     }
@@ -124,11 +127,11 @@ main .portada {
 
 /* Sección 03 */
 
-section.servicios{}
+section.servicios {}
 
-.tarjetas{
+.tarjetas {
     display: grid;
-    grid-template-columns: repeat(auto-fill,minmax(300px,1fr));
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     grid-auto-rows: 350px;
     grid-column-gap: 20px;
     grid-row-gap: 20px;
@@ -140,15 +143,16 @@ section.servicios{}
 }
 
 @keyframes revelar {
-    from{
-         
+    from {
+
         translate: 0 100px;
     }
-    to{
-         
-        translate : 0 0;
+
+    to {
+
+        translate: 0 0;
     }
-    
+
 }
 
 .box {
@@ -158,13 +162,15 @@ section.servicios{}
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     text-align: center;
-    color: #000000; /* pero del texto */
+    color: #000000;
+    /* pero del texto */
 
 
 }
 
 .box p {
-    margin: 10px; /*párrf arrb costads */
+    margin: 10px;
+    /*párrf arrb costads */
 }
 
 .icon img {
@@ -172,29 +178,84 @@ section.servicios{}
     height: 100px;
     border-radius: 50%;
     background-color: #fff;
-    margin-bottom: 10px; /* este margen entre imagenes y texto */
+    margin-bottom: 10px;
+    /* este margen entre imagenes y texto */
 }
 
+.tabla-img {
+    display: flex;
+    justify-content: center;
+}
 
+.tabla-img img {
+    min-width: 200px;
+}
 
 /* Fin Empresarial Seccion 03 */
 
+/* seccion galeria */
+
+.slider {
+    overflow: hidden;
+}
+
+.slider .slide-track {
+    display: flex;
+    justify-content: center;
+    /*total-fotos *100/fotos visibles % */
+    width: 333.33%;
+    animation: name duration timing-function delay iteration-count direction fill-mode;
+    animation: scrolear 20s linear 2s infinite alternate;
+}
+
+@keyframes scrolear {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-66.66%);
+    }
+
+}
+
+.slider .slide-track:hover,
+.slide-track[pausado] {
+    animation-play-state: paused;
+}
+
+.slider .slide {
+    /*(1/total-fotos) *100 % */
+    width: 10%;
+
+    cursor: pointer;
+}
+
+.slide img {
+    width: 100%;
+}
+
+/* fin seccion galeria */
+
 /* seccion contacto */
 
-div.info-contacto{
+div.info-contacto {
     display: flex;
-    gap:20px;
+    gap: 20px;
     flex-wrap: wrap;
 }
-div.info-contacto>div{
+
+div.info-contacto>div {
     flex-grow: 1;
     flex-basis: 256px;
 
 }
-.redes a{
-    color:var(--color-tema);
+
+.redes a {
+    color: var(--color-tema);
     font-size: 1.5em;
 }
+
 /* div.formulario {
     display: grid;
     grid-template-columns: 1fr ;
@@ -204,11 +265,12 @@ div.info-contacto>div{
 
 div.formulario {
     display: flex;
-    gap:10px;
+    gap: 10px;
     flex-wrap: wrap;
-    
+
 }
-div.formulario textarea{
+
+div.formulario textarea {
     grid-column-start: 1;
     grid-column-end: -1;
     padding: 5px;
@@ -219,7 +281,8 @@ div.formulario textarea{
     flex-basis: 500px;
 
 }
-div.formulario input{
+
+div.formulario input {
     padding: 10px;
     color: #808080;
     font-size: 14.4px;
@@ -230,13 +293,14 @@ div.formulario input{
     flex-basis: 156px;
 
 }
-div.formulario .boton-tema{
+
+div.formulario .boton-tema {
     width: 200px;
     min-width: 20px;
 }
 
 
-.respuesta-formulario{
+.respuesta-formulario {
     padding: 10px;
     margin: 10px 0px;
     border-radius: 5px;
@@ -244,14 +308,17 @@ div.formulario .boton-tema{
     font-size: 0.8em;
 }
 
-.respuesta-formulario-ok{
+.respuesta-formulario-ok {
     display: block;
-    border: 1px dotted burlywood;;
+    border: 1px dotted burlywood;
+    ;
     background-color: antiquewhite;
 }
-.respuesta-formulario-error{
+
+.respuesta-formulario-error {
     display: block;
-    border: 1px dotted rebeccapurple;;
+    border: 1px dotted rebeccapurple;
+    ;
     background-color: crimson;
 }
 
@@ -268,66 +335,71 @@ div.formulario .boton-tema{
 
 /* sección nosotros */
 
-section.nosotros{
+section.nosotros {
     background-color: #f7f8f9;
 }
-.desplegable{
+
+.desplegable {
     overflow: hidden;
-     
+
 }
 
-.desplegable+div{
+.desplegable+div {
     max-height: 0;
     overflow: hidden;
     box-sizing: border-box;
     padding: 0 10px;
-    margin:5px;
+    margin: 5px;
     transition: max-height 400ms ease-out;
 }
 
-.desplegable[open]+div{
-    max-height: 800px; /* Set a max-height value enough to show all the content */ 
+.desplegable[open]+div {
+    max-height: 800px;
+    /* Set a max-height value enough to show all the content */
     transition: max-height 400ms ease-out;
 }
 
-.desplegable summary span{
+.desplegable summary span {
     background-color: var(--color-tema-secundario);
     padding: 10px;
     display: block;
     border-radius: 5px;
-    color:white;
+    color: white;
 
 }
-.desplegable summary span:hover{
+
+.desplegable summary span:hover {
     cursor: pointer;
 }
-.desplegable summary span::before{
+
+.desplegable summary span::before {
     content: "\f0fe";
 }
-.desplegable[open] summary span::before{
+
+.desplegable[open] summary span::before {
     content: "\f146";
 }
 
-.contenido-desplegable{
+.contenido-desplegable {
     padding-bottom: 15px;
     text-align: justify;
 }
 
-div.nmv{
-    display:flex;
+div.nmv {
+    display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 10px;
 }
 
-div.nmv > div{
+div.nmv>div {
     overflow: hidden;
-    
+
     flex-basis: 475px;
-    
+
 }
 
-.nmv-2{
+.nmv-2 {
     border-radius: 10px;
     height: 300px;
 
@@ -336,15 +408,16 @@ div.nmv > div{
     background-size: cover;
     background-position: 50% 50%;
 }
+
 /* fin sección */
 
 /* certificaciones */
 
-section.clientes{
+section.clientes {
     background-color: #f7f8f9;
 }
 
-section.clientes .listado-clientes{
+section.clientes .listado-clientes {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;

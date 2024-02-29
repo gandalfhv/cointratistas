@@ -41,3 +41,19 @@ document.querySelectorAll('.menu-movil div ')
 
 
 
+const pausarCarousel= ()=>{
+
+    const slideTrack= document.querySelector(".slide-track");
+    console.log(slideTrack.getAttribute("pausado"))
+
+    if (slideTrack.getAttribute("pausado")===null)
+        slideTrack.setAttribute("pausado","");
+    else
+    slideTrack.removeAttribute("pausado")
+}
+
+document.getElementById("boton").addEventListener("click",
+    (e)=>{
+        pausarCarousel();
+    }
+);
