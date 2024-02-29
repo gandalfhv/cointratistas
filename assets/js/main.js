@@ -40,20 +40,39 @@ document.querySelectorAll('.menu-movil div ')
 
 
 
-
-const pausarCarousel= ()=>{
-
-    const slideTrack= document.querySelector(".slide-track");
-    console.log(slideTrack.getAttribute("pausado"))
-
-    if (slideTrack.getAttribute("pausado")===null)
-        slideTrack.setAttribute("pausado","");
+const activarDesactivarAtributo =(claseCSS, nombreAtributo)=>{
+    const slideTrack= document.querySelector(claseCSS);
+    if (slideTrack.getAttribute(nombreAtributo)===null)
+        slideTrack.setAttribute(nombreAtributo,"");
     else
-    slideTrack.removeAttribute("pausado")
+        slideTrack.removeAttribute(nombreAtributo)
 }
 
-document.getElementById("boton").addEventListener("click",
+document.querySelector(".cerrar-lightbox").addEventListener("click",
     (e)=>{
-        pausarCarousel();
+        activarDesactivarAtributo(".lightbox","activo")
+        activarDesactivarAtributo(".slide-track","pausado")
     }
 );
+
+document.querySelectorAll(".slide img").forEach(imagen=>{
+    imagen.addEventListener("click",
+    (e)=>{
+        
+        document.querySelector(".lightbox .img-completa").src=imagen.src
+        activarDesactivarAtributo(".slide-track","pausado")
+        activarDesactivarAtributo(".lightbox","activo")
+    });
+});
+
+document.querySelectorAll(".naveg").forEach(link=>{
+    link.addEventListener("click",
+    (e)=>{
+        e.preventDefault();
+        console.log("click")
+        const objeto=document.getElementById(link.name)
+        objeto.scrollIntoView();
+        console.log(objeto)
+
+    });
+});

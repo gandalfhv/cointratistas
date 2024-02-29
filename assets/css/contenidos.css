@@ -196,16 +196,28 @@ section.servicios {}
 /* seccion galeria */
 
 .slider {
-    overflow: hidden;
-}
+    position: relative;
+ }
+
+
 
 .slider .slide-track {
+    position: relative;
     display: flex;
-    justify-content: center;
+    scroll-snap-type: x mandatory;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    scrollbar-width: none;
+    scroll-behavior: smooth;
+    overscroll-behavior: contain;
+     
     /*total-fotos *100/fotos visibles % */
-    width: 333.33%;
-    animation: name duration timing-function delay iteration-count direction fill-mode;
-    animation: scrolear 20s linear 2s infinite alternate;
+    /* width: 500%; */
+    /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+    /* animation: scrolear 20s linear  infinite alternate; */
+
+
+    width: 100%;
 }
 
 @keyframes scrolear {
@@ -219,22 +231,82 @@ section.servicios {}
 
 }
 
+
+@media (min-width:600px) {
+    .slider .slide-track {
+        /* width: 333.33%; */
+    }
+
+}
 .slider .slide-track:hover,
-.slide-track[pausado] {
+.slider .slide-track[pausado] {
     animation-play-state: paused;
 }
 
 .slider .slide {
+    flex-basis: 33.33%;
+    flex-shrink: 0; /*No pueden ser menores a su basis*/
+
+    scroll-snap-align: start;
     /*(1/total-fotos) *100 % */
-    width: 10%;
-
+    /* width: 10%; */
     cursor: pointer;
+    overflow: hidden;
+    background-color: #808080;
 }
 
-.slide img {
+.slider .slide img {
     width: 100%;
+    /*las imagenes salen de menor altura, esto lo soluciona si quitamos align-items*/
+    height: 100%; 
+    scale: 1.4;
+    transition: scale .5s ease  ;
 }
 
+.slider .slide:hover  img {
+    scale :1;
+}
+
+.controles{
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+    padding: 5px 0;
+}
+.controles .naveg{
+    display: block;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: var(--color-tema-secundario);
+}
+.lightbox{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding-top: 50px;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 2;
+    display: none;
+    flex-flow: column;
+    row-gap: 10px;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.lightbox[activo]{
+    display: flex;
+}
+.lightbox .cerrar-lightbox{
+
+}
+
+.lightbox .img-completa{
+    max-width: 90%;
+    
+}
 /* fin seccion galeria */
 
 /* seccion contacto */

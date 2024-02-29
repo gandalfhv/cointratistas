@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div class="image-container">
+        <img src="https://i.kym-cdn.com/entries/icons/mobile/000/012/982/039.jpg" alt="Imagen 1">
+        <img src="https://www.memesmonkey.com/images/memesmonkey/77/77c7613c05100523917cfdfd7daf39ba.jpeg" alt="Imagen 2">
+        <img src="https://media.tenor.com/L8wJy79nmH8AAAAC/baby-yoda-wee.gif" alt="Imagen 3">
+        
+          <img src="https://www.elmueble.com/medio/2023/05/22/gatitos_4ce92f47_230522124302_1000x667.jpg" alt="Imagen 1">
+        <img src="https://img.freepik.com/fotos-premium/gatitos-kawaii-peluche-esponjosos-hermosa-imagen-arte-generado-ai_843679-5987.jpg" alt="Imagen 2">
+        <img src="https://e.rpp-noticias.io/xlarge/2017/06/26/062906_433381.jpg" alt="Imagen 3">
+       
+        
+        <img src="https://cdn.unotv.com/images/2023/09/gatitos-munchkin-jpg-140420-1024x576.jpg" alt="Imagen 1">
+        <img src="https://img.freepik.com/fotos-premium/dos-lindos-gatitos-enamorados-corazones-romantico-generativo-ai_791316-12491.jpg" alt="Imagen 2">
+        <img src="https://www.neoteo.com/wp-content/uploads/2019/03/logo-41.jpg" alt="Imagen 3">
+       
+        
+        
+      </div>
+      <button id="next-btn">Mostrar siguientes imágenes</button>
+      
+
+      <style>
+        .image-container {
+  display: flex;
+  overflow: hidden;
+  transition: transform 0.5s ease; /* Animación de transición */
+}
+
+.image-container img {
+  width: 33.33%; /* Ancho igual para las tres imágenes */
+  flex-shrink: 0; /* Evitar que las imágenes se contraigan */
+}
+
+.hidden {
+  visibility: hidden; /* Ocultar las imágenes que no están en el rango visible */
+}
+      </style>
+<script>
+    document.getElementById('next-btn').addEventListener('click', function() {
+  var images = document.querySelectorAll('.image-container img');
+  var firstImage = images[0];
+  var secondImage = images[1];
+  var thirdImage = images[2];
+
+  // Mover la primera imagen fuera de la vista
+  firstImage.classList.add('hidden');
+
+  // Desplazar las imágenes restantes hacia la izquierda
+  document.querySelector('.image-container').style.transform = 'translateX(-33.33%)';
+
+  // Mover las imágenes visibles hacia la primera posición
+  setTimeout(function() {
+    firstImage.src = images[3].src;
+    secondImage.src = images[4].src;
+    thirdImage.src = images[5].src;
+
+    // Mostrar las nuevas imágenes
+    firstImage.classList.remove('hidden');
+
+    // Resetear la posición de las imágenes
+    document.querySelector('.image-container').style.transform = 'translateX(0)';
+  }, 500); // Esperar la duración de la transición CSS
+});
+
+</script>
+
+</body>
+</html>
